@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie List</title>
+
+  <!-- Include Bootstrap CSS from a CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row d-flex flex-wrap ">
+      <% record.map((val)=> { %>
+        <div class="m-3 main-box">
+          <div class="box">
+            <img src="<%= val.image %>" alt="Movie Poster">
+          </div>
+          <div class="description">
+            <div class="content">
+              <h2 class="text-bolder">
+                <%= val.name %>
+              </h2>
+              <span class="text-secondary"> Reales in : <%= val.year %> </span>
+            </div>
+            <div>
+              <p> Language :- <%= val.language %>
+                  <p> &#8377 <%= val.price %>
+                  </p>
+            </div>
+            <div class="btn">
+              <a href="/editData?id=<%= val.id %>" class="btn btn-primary btn-sm">Edit</a>
+              <a href="/deleteData?id=<%= val.id %>" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+
+
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <a href="/form" class="btn btn-success add-movie ">Add Movie</a>
+    </div>
+  </div>
+
+  <!-- Include Bootstrap JS and Popper.js from a CDN -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie</title>
+
+    <!-- Include Bootstrap CSS from a CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <form method="post" action="/updateData" enctype="multipart/form-data">
+            <input type="hidden" name="editid" value="<%= single.id %>">
+            <table class="table">
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" class="form-control" name="name" value="<%= single.name %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Year</td>
+                    <td>
+                        <input type="text" class="form-control" name="year" value="<%= single.year %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Language</td>
+                    <td>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="language" value="hindi" <% if(single.language.includes('hindi')) { %> checked <% } %>>
+                            <label class="form-check-label">Hindi</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="language" value="english" <% if(single.language.includes('english')) { %> checked <% } %>>
+                            <label class="form-check-label">English</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Price</td>
+                    <td>
+                        <input type="text" class="form-control" name="price" value="<%= single.price %>">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Image</td>
+                    <td>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name="avatar">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                        <img src="<%= single.image %>" width="100px" class="mt-2">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                    </td>
+                </tr>
+            </table>
+            <div class="d-flex justify-content-center">
+                <a href="/" class="btn btn-secondary">View Movies</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS and Popper.js from a CDN -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
